@@ -41,7 +41,7 @@ pipeline {
                  """                  
          }
          }
-         STARTING TERRAFORM DEPLOYMENT - 
+         
 
         stage('Terraform Plan'){
              steps {
