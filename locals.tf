@@ -1,5 +1,5 @@
 locals {
-  current_account_info = data.aws_caller_identity.current_account.account_id
+  current_account_info = data.aws_caller_identity.current.account_id
   name_acc_prefix      = local.current_account_info == var.dev_account_num ? "dev" : "unknown"
   region               = "us-east-1"
 
@@ -15,7 +15,7 @@ locals {
 
 #locals.tf
 locals {
-  current_account = data.aws_caller_identity.current.account_id
+  current = data.aws_caller_identity.current.account_id
   wp_creds = jsondecode(
     data.aws_secretsmanager_secret_version.wp_creds.secret_string
   )

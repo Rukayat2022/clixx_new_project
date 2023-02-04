@@ -1,5 +1,5 @@
 # Call current profile account information
-data "aws_caller_identity" "current_account" {}
+data "aws_caller_identity" "current" {}
 
 
 data "aws_secretsmanager_secret_version" "wp_creds" {
