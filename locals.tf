@@ -13,19 +13,6 @@ locals {
 }
 
 
-# locals {
-#   wp_creds = jsondecode(
-#     data.aws_secretsmanager_secret_version.wpcreds.secret_string
-#   )
-# }
-#locals.tf
-# locals {
-  #current_account = data.aws_caller_identity.current.account_id
-#   wpcreds = jsondecode(
-#     data.aws_secretsmanager_secret_version.wpcreds.secret_string
-#   )
-# }
-
 #locals.tf
 locals {
   current_account = data.aws_caller_identity.current.account_id
