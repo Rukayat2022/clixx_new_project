@@ -8,8 +8,8 @@ variable "aws_region" {
 
 
 variable "AWS_REGION" {}
-variable "AWS_ACCESS_KEY" {}
-variable "AWS_SECRET_KEY" {}
+# variable "AWS_ACCESS_KEY" {}
+# variable "AWS_SECRET_KEY" {}
 
 # Environment Variable
 variable "environment" {
