@@ -33,6 +33,7 @@ pipeline {
         //  }
         //  }
 
+
         stage('Terraform init'){
              steps {
                  slackSend (color: '#FFFF00', message: "STARTING TERRAFORM DEPLOYMENT -'RUKAYAT':  Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
