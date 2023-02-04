@@ -9,7 +9,7 @@ resource "aws_db_instance" "database-instance" {
 }
 
 data "aws_db_snapshot" "database_snapshot" {
-  db_snapshot_identifier = var.db_snapshot_identifier
+  db_snapshot_identifier = "${local.clixxcreds.db_snapshot_identifier}"
   most_recent            = true
   snapshot_type          = "manual"
 }
