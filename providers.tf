@@ -1,7 +1,7 @@
 provider "aws" {
   region     = "${local.wp_creds.AWS_REGION}"
-  access_key = "${local.wp_creds.AWS_ACCESS_KEY}"
-  secret_key = "${local.wp_creds.AWS_SECRET_KEY}"
+  # access_key = "${local.wp_creds.AWS_ACCESS_KEY}"
+  # secret_key = "${local.wp_creds.AWS_SECRET_KEY}"
   
 
   assume_role {
