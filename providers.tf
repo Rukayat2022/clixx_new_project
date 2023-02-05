@@ -16,15 +16,15 @@
 # }
 
 
-provider "aws" {
-  profile = var.aws_profile
+# provider "aws" {
+#   #profile = var.aws_profile
   
 
-  assume_role {
-    #The role ARN within Account B to AssumeRole into. Created in step 1.
-    role_arn = "arn:aws:iam::315407446881:role/Engineer"
+#   assume_role {
+#     #The role ARN within Account B to AssumeRole into. Created in step 1.
+#     role_arn = "arn:aws:iam::315407446881:role/Engineer"
 
-  }
-}
+#   }
+# }
 
 
