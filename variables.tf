@@ -7,9 +7,9 @@ variable "aws_region" {
 }
 
 
-# variable "AWS_REGION" {}
-# variable "AWS_ACCESS_KEY" {}
-# variable "AWS_SECRET_KEY" {}
+variable "AWS_REGION" {}
+variable "AWS_ACCESS_KEY" {}
+variable "AWS_SECRET_KEY" {}
 
 
 variable "aws_profile" {
@@ -57,7 +57,7 @@ variable "database-instance-identifier" {
   type    = string
 }
 
-#variable "db_snapshot_identifier" {}
+variable "db_snapshot_identifier" {}
 
 
 variable "dev_names" {
@@ -92,13 +92,13 @@ variable "PATH_TO_APPSERVER_PUBLIC_KEY" {
   default = "private_ruk.pub"
 }
 
-#variable "new_rds" {}
+variable "new_rds" {}
 
-# variable "pass_wort" {}
+variable "pass_wort" {}
 
-# variable "dbuser_name" {}
+variable "dbuser_name" {}
 
-# variable "dbasename" {}
+variable "dbasename" {}
 
 /*
 variable "priv_subnets" {
