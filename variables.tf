@@ -57,7 +57,7 @@ variable "database-instance-identifier" {
   type    = string
 }
 
-variable "db_snapshot_identifier" {}
+#variable "db_snapshot_identifier" {}
 
 
 variable "dev_names" {
