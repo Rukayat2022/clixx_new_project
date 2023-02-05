@@ -17,6 +17,8 @@ variable "aws_profile" {
   default = "rukayat_jenkins"
 }
 
+
+
 # Environment Variable
 variable "environment" {
   description = "Environment Variable used as a prefix"
