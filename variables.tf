@@ -7,9 +7,15 @@ variable "aws_region" {
 }
 
 
-variable "AWS_REGION" {}
-variable "AWS_ACCESS_KEY" {}
-variable "AWS_SECRET_KEY" {}
+# variable "AWS_REGION" {}
+# variable "AWS_ACCESS_KEY" {}
+# variable "AWS_SECRET_KEY" {}
+
+
+variable "aws_profile" {
+  type = string
+  default = "rukayat_jenkins"
+}
 
 # Environment Variable
 variable "environment" {
