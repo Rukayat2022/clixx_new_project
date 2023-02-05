@@ -52,12 +52,12 @@ variable "clixxsnapshot" {
   default = "arn:aws:rds:us-east-1:577701061234:snapshot:wordpressdbclixxsnap"
 }
 
-# variable "database-instance-identifier" {
-#   default = "wordpressdbclixxretailapp"
-#   type    = string
-# }
+variable "database-instance-identifier" {
+  default = "wordpressdbclixxretailapp"
+  type    = string
+}
 
-#variable "db_snapshot_identifier" {}
+variable "db_snapshot_identifier" {}
 
 
 variable "dev_names" {
