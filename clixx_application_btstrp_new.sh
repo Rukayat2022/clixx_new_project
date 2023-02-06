@@ -81,7 +81,7 @@ else
           Proceed to git clone of the repository containing ${wp_config_dir}" 
     #git clone https://github.com/stackitgit/CliXX_Retail_Repository.git
     #sudo git clone -b development https://github.com/stackitgit/CliXX_Retail_Repository.git
-    sudo git clone https://github.com/PHRONESIS007/Clixx-Docker-Image-Repo.git
+    sudo git clone https://github.com/PHRONESIS007/CliXX_Retail_Repository.git
     mv CliXX_Retail_Repository/* /var/www/html
     
     mv /var/www/html/wp-config.php wp-config-old.php
