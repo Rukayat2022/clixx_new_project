@@ -56,7 +56,7 @@ pipeline {
              steps {
                  slackSend (color: '#FFFF00', message: "STARTING INFRASTRUCTURE BUILD AND VULNERABILITY SCAN - -'RUKAYAT':  Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
                  sh """
-                 terraform destroy -auto-approve
+                 terraform apply -auto-approve
                  """                          
          }
          }
