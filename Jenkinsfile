@@ -36,7 +36,7 @@ pipeline {
 
         stage('Terraform init'){
              steps {
-                 slackSend (color: '#FFFF00', message: "STARTING TERRAFORM DEPLOYMENT -'RUKAYAT':  Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                 slackSend (color: '#ffaa00', message: "STARTING TERRAFORM DEPLOYMENT -RUKAYAT:  Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
                  sh """
                  terraform init -upgrade 
                  """                  
@@ -54,7 +54,7 @@ pipeline {
 
         stage('Clixx Code Deploy'){
              steps {
-                 slackSend (color: '#FFFF00', message: "STARTING INFRASTRUCTURE BUILD AND VULNERABILITY SCAN - -'RUKAYAT':  Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                 slackSend (color: '#FFFF00', message: "STARTING INFRASTRUCTURE BUILD AND VULNERABILITY SCAN - -RUKAYAT:  Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
                  sh """
                  terraform destroy -auto-approve
                  """                          
