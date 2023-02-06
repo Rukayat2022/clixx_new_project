@@ -8,7 +8,7 @@ resource "aws_key_pair" "bastion-instance-kp" {
 # Bastion server launch template in the public subnet
 resource "aws_launch_template" "bastion_server_template" {
   name          = "bastion-az1-${local.name_acc_prefix}"
-  image_id      = var.ami
+  image_id      = "${local.wp_creds.ami_id}"
   instance_type = var.instance_type
   key_name      = aws_key_pair.bastion-instance-kp.id
   #user_data     = base64encode(file("${path.module}/webserver_btstrp.sh"))
