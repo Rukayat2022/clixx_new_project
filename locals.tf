@@ -1,6 +1,6 @@
 locals {
   current_account_info = data.aws_caller_identity.current.account_id
-  name_acc_prefix      = local.current_account_info == var.dev_account_num ? "dev" : "unknown"
+  name_acc_prefix      = local.current_account_info ==  "${local.wp_creds.dev_account_num}" ? "dev" : "unknown"
   region               = "us-east-1"
 
   vpc_tags = {
