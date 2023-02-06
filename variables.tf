@@ -8,18 +8,6 @@ variable "AWS_REGION" {
 }
 
 
-#variable "AWS_REGION" {}
-# variable "AWS_ACCESS_KEY" {}
-# variable "AWS_SECRET_KEY" {}
-
-
-# variable "aws_profile" {
-#   type = string
-#   default = "rukayat_jenkins"
-# }
-
-
-
 # Environment Variable
 variable "environment" {
   description = "Environment Variable used as a prefix"
@@ -27,20 +15,12 @@ variable "environment" {
   default     = "dev"
 }
 
-#variable "dev_account_num" {}
 
-# variable "ami" {
-#   default = "ami-08f3d892de259504d"
-# }
+
 
 variable "instance_type" {
   default = "t2.micro"
 }
-
-# variable "clixx-bucket" {
-#   default = "stackclixximagesrukayat"
-# }
-
 
 
 variable "db_instance_type" {
@@ -58,7 +38,6 @@ variable "database-instance-identifier" {
   type    = string
 }
 
-#variable "db_snapshot_identifier" {}
 
 
 variable "dev_names" {
@@ -92,17 +71,3 @@ variable "PATH_TO_BASTION_PUBLIC_KEY" {
 variable "PATH_TO_APPSERVER_PUBLIC_KEY" {
   default = "private_ruk.pub"
 }
-
-# variable "new_rds" {}
-
-# variable "pass_wort" {}
-
-# variable "dbuser_name" {}
-
-# variable "dbasename" {}
-
-/*
-variable "priv_subnets" {
-  default = ["aws_subnet.app_server_private_az1.id", "aws_subnet.app_server_prs
-}
-*/
