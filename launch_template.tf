@@ -46,7 +46,7 @@ resource "aws_key_pair" "appserver-instance-kp" {
 resource "aws_launch_template" "app_server_template" {
   name                   = "app_server"
   vpc_security_group_ids = [aws_security_group.server-lt-sg.id]
-  image_id               = var.ami
+  image_id               = ${local.wp_creds.ami_id}
   instance_type          = var.instance_type
   key_name               = aws_key_pair.appserver-instance-kp.key_name
  

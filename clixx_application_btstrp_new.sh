@@ -79,7 +79,8 @@ then
 else
     echo "The webpage configuration file ${wp_config_dir} does not exist
           Proceed to git clone of the repository containing ${wp_config_dir}" 
-    git clone https://github.com/stackitgit/CliXX_Retail_Repository.git
+    #git clone https://github.com/stackitgit/CliXX_Retail_Repository.git
+    sudo git clone -b development https://github.com/stackitgit/CliXX_Retail_Repository.git
     mv CliXX_Retail_Repository/* /var/www/html
     
     mv /var/www/html/wp-config.php wp-config-old.php
