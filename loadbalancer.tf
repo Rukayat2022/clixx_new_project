@@ -7,8 +7,6 @@ resource "aws_lb" "app_server_elb" {
   subnets            = [aws_subnet.public_az1.id, aws_subnet.public_az2.id] #[aws_subnet.app_server_private_az1.id, aws_subnet.app_server_private_az2.id]
 }
 
-
-
 # Private subnet target group
 resource "aws_lb_target_group" "target_group_priv" {
   name        = "my-target-group"
