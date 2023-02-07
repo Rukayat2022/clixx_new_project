@@ -76,7 +76,7 @@ resource "aws_subnet" "rds_private_az2" {
 }
 
 
-################################### Internet Gateway ####################################
+# Internet Gateway 
 resource "aws_internet_gateway" "main-int-gateway" {
   vpc_id = aws_vpc.main-vpc.id
   tags = {
@@ -102,7 +102,7 @@ resource "aws_route_table_association" "mainvpc_rt_public_az2" {
 }
 
 
-##################################################################################
+
 ## NAT Gateways, Private Subnet Route Tables
 # Create Elastic IP
 resource "aws_eip" "nat1" {
@@ -142,6 +142,7 @@ resource "aws_nat_gateway" "public-nat2" {
   subnet_id     = aws_subnet.public_az2.id
   depends_on    = [aws_eip.nat2]
 }
+
 
 resource "aws_route_table" "private2" {
   vpc_id = aws_vpc.main-vpc.id
