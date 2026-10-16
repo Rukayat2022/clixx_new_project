@@ -33,14 +33,16 @@ pipeline {
         //  }
         //  }
 
+
         stage('Terraform init'){
              steps {
-                 //slackSend (color: '#FFFF00', message: "STARTING TERRAFORM DEPLOYMENT: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                 slackSend (color: '#ffaa00', message: "STARTING TERRAFORM DEPLOYMENT -RUKAYAT:  Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
                  sh """
                  terraform init -upgrade 
                  """                  
          }
          }
+         
 
         stage('Terraform Plan'){
              steps {
@@ -52,7 +54,7 @@ pipeline {
 
         stage('Clixx Code Deploy'){
              steps {
-                 //slackSend (color: '#FFFF00', message: "STARTING INFRASTRUCTURE BUILD AND VULNERABILITY SCAN: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+                 slackSend (color: '#FFFF00', message: "STARTING INFRASTRUCTURE BUILD AND VULNERABILITY SCAN - -RUKAYAT:  Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
                  sh """
                  terraform apply -auto-approve
                  """                          
@@ -62,10 +64,9 @@ pipeline {
         //   stage('Build Vulnerability Report'){
         //      steps {
         //          sh """
-        //          cd instances
         //          aws inspector start-assessment-run --assessment-run-name Hardeningrun_'${VERSION}' --assessment-template-arn "arn:aws:inspector:us-east-1:196880981857:target/0-IhIHttwd/template/0-ew1eWaCe" --region us-east-1
         //          """  
-        //          //slackSend (color: '#FFFF00', message: "ENDING DEPLOYMENT: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")                        
+        //          slackSend (color: '#FFFF00', message: "ENDING DEPLOYMENT: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")                        
         //  }
         //  }
 
@@ -88,3 +89,5 @@ pipeline {
 // def getPackerPath(){
 //        def PackerHome= tool name: 'Packer', type: 'biz.neustar.jenkins.plugins.packer.PackerInstallation'
 //     }
+
+

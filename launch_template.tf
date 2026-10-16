@@ -8,7 +8,7 @@ resource "aws_key_pair" "bastion-instance-kp" {
 # Bastion server launch template in the public subnet
 resource "aws_launch_template" "bastion_server_template" {
   name          = "bastion-az1-${local.name_acc_prefix}"
-  image_id      = var.ami
+  image_id      = "${local.wp_creds.ami_id}"
   instance_type = var.instance_type
   key_name      = aws_key_pair.bastion-instance-kp.id
   #user_data     = base64encode(file("${path.module}/webserver_btstrp.sh"))
@@ -34,9 +34,9 @@ resource "aws_launch_template" "bastion_server_template" {
 
 
 
-############################# Creating app servers #########################
+#Creating app servers
 
-### Key Pair
+# Key Pair
 #Use keygen to generate new keypairs
 resource "aws_key_pair" "appserver-instance-kp" {
   key_name   = "private_ruk.pub"
@@ -46,19 +46,20 @@ resource "aws_key_pair" "appserver-instance-kp" {
 resource "aws_launch_template" "app_server_template" {
   name                   = "app_server"
   vpc_security_group_ids = [aws_security_group.server-lt-sg.id]
-  image_id               = var.ami
+  image_id               = "${local.wp_creds.ami_id}"
   instance_type          = var.instance_type
   key_name               = aws_key_pair.appserver-instance-kp.key_name
-  #subnet_id = 
+ 
   user_data = "${base64encode(<<EOF
         ${templatefile("${path.module}/clixx_application_btstrp_new.sh",
-    { my_webip    = aws_lb.app_server_elb.dns_name, db_username = var.dbuser_name,
-      db_password = var.pass_wort, region = var.AWS_REGION,
-      db_name     = var.dbasename,
+    { my_webip    = aws_lb.app_server_elb.dns_name, db_username = "${local.wp_creds.dbuser_name}",
+      db_password = "${local.wp_creds.pass_wort}", region = "${local.wp_creds.AWS_REGION}",
+      db_name     = "${local.wp_creds.dbasename}",
       efs_dnsname = aws_efs_file_system.app-server-efs.dns_name, MOUNT_POINT = var.mount_point, wp_config_dir = "/var/www/html/CliXX_Retail_Repository",
   rds_db = element(split(":", aws_db_instance.database-instance.endpoint), 0) })}
         EOF
 )}"
+
 
 #new_host = aws_db_instance.database-instance.address, 
 
@@ -86,3 +87,6 @@ dynamic "block_device_mappings" {
 }
 
 }
+
+
+
